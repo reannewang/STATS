@@ -1,0 +1,15 @@
+getwd()
+setwd("C:/Users/ah24416/OneDrive - Queen Mary, University of London/Documents/Stat modelling/Week 3")
+
+data <- read.csv("ashford_matches.csv")
+
+home_away <- data$home_away
+goals_scored <- data$goals_scored
+goals_conceded <- data$goals_conceded
+opponent_rank <- data$opponent_rank
+
+View(data)
+
+glm_model <- glm(goals_scored ~ opponent_rank, data = data, family = poisson(link = "log"))
+
+summary(glm_model)
